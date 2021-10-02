@@ -9,22 +9,22 @@ namespace AsyncAndAwait
     {
         static async Task  Main(string[] args)
         {
-            var customerName = new List<string>();           
-            await Task.Run(() => DownLoadCustomerName(ref customerName));
+            List<string> customerName;
+            customerName = await DownLoadCustomerName();
             DisplayNames(customerName);
             Console.WriteLine("End...");
             Console.ReadLine();
         }
-        public static void DownLoadCustomerName(ref List<string> customerName)
+        private static Task<List<string>> DownLoadCustomerName()
         {
             Console.WriteLine("DownLoad ....");
-            if (customerName == null)
-                customerName = new List<string>();
+            var customerName = new List<string>();
             for (int i = 0; i < 100; i++)
             {
                 customerName.Add($"Name: {i}");
                 Thread.Sleep(100);
             }
+            return Task.FromResult(customerName);
         }
 
         private static void DisplayNames(List<string> customerName)
