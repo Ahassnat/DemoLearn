@@ -9,8 +9,7 @@ namespace AsyncAndAwait
     {
         static async Task  Main(string[] args)
         {
-            var customerName = new List<string>();
-            
+            var customerName = new List<string>();           
             await Task.Run(() => DownLoadCustomerName(ref customerName));
             DisplayNames(customerName);
             Console.WriteLine("End...");
