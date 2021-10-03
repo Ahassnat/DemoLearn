@@ -7,9 +7,9 @@ using System.Threading.Tasks;
 
 namespace ProductMicroServiceWithDocker.Data
 {
-    public class ProductDataContext:DbContext
+    public class ProductContext:DbContext
     {
-        public ProductDataContext(DbContextOptions<ProductDataContext> options) : base(options)
+        public ProductContext(DbContextOptions<ProductContext> options) : base(options)
         {
         }
        
